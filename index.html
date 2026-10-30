@@ -1,0 +1,1369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOTANICA | Aesthetic Bottles</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+    --cream: #faf8f2;
+    --green: #526b52;
+    --dark: #283b30;
+    --sage: #dce6d8;
+    --pink: #ead4d0;
+    --text: #354438;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    height: 78px;
+    padding: 0 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #faf8f2eF;
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid #e9e7df;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: var(--dark);
+}
+
+.logo span {
+    color: #9baf91;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #566456;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #9a806d;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon-btn {
+    border: none;
+    background: transparent;
+    font-size: 21px;
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -9px;
+    right: -10px;
+    background: #8caa83;
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    display: grid;
+    place-items: center;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 520px;
+    padding: 65px 9%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: #e9eee3;
+    overflow: hidden;
+}
+
+.hero-text {
+    animation: fadeUp 1s ease;
+}
+
+.hero-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #81947b;
+    margin-bottom: 22px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(43px, 5.5vw, 68px);
+    line-height: 1.13;
+    color: #344a38;
+    margin-bottom: 20px;
+}
+
+.hero h1 em {
+    color: #9aa98c;
+}
+
+.hero p {
+    color: #68786a;
+    line-height: 1.8;
+    max-width: 420px;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.primary-btn {
+    background: #536b52;
+    color: white;
+    border: none;
+    padding: 15px 29px;
+    border-radius: 4px;
+    transition: .3s;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.primary-btn:hover {
+    background: #344a38;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px #344a3830;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 470px;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 48% 48% 5px 5px;
+    animation: float 4s ease-in-out infinite;
+    box-shadow: 20px 25px 50px #596d5420;
+}
+
+.hero-circle {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border: 1px solid #a5b79b;
+    border-radius: 50%;
+    animation: rotate 25s linear infinite;
+    pointer-events: none;
+}
+
+/* FEATURES */
+
+.features {
+    padding: 28px 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    border-bottom: 1px solid #e9e7df;
+    background: #fffefa;
+}
+
+.feature {
+    padding: 12px;
+}
+
+.feature strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.feature p {
+    color: #8b9489;
+    font-size: 12px;
+}
+
+/* SECTION */
+
+.products-section {
+    padding: 85px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading small {
+    color: #93a38b;
+    letter-spacing: 4px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 39px;
+    margin: 12px 0;
+    color: #354a38;
+}
+
+.section-heading p {
+    color: #899188;
+    font-size: 14px;
+}
+
+/* FILTERS */
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.categories {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid #d9ded4;
+    padding: 9px 18px;
+    border-radius: 30px;
+    color: #647464;
+    font-size: 12px;
+    transition: .3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: #536b52;
+    color: white;
+    border-color: #536b52;
+}
+
+.search-box {
+    border: 1px solid #d9ded4;
+    border-radius: 30px;
+    padding: 10px 15px;
+    background: white;
+    outline: none;
+    width: 210px;
+}
+
+/* PRODUCT GRID */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: white;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+    animation: fadeUp .6s ease both;
+    transition: .35s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px #344a3815;
+}
+
+.product-image {
+    height: 270px;
+    background: #f0eee6;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.07);
+}
+
+.tag {
+    position: absolute;
+    top: 14px;
+    left: 13px;
+    background: #e1e9db;
+    color: #586d51;
+    padding: 6px 11px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+}
+
+.wishlist {
+    position: absolute;
+    right: 13px;
+    top: 12px;
+    background: white;
+    border: none;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    font-size: 17px;
+    transition: .3s;
+}
+
+.wishlist.active {
+    color: #cf777b;
+}
+
+.product-info {
+    padding: 18px;
+}
+
+.product-info small {
+    color: #9ba395;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.product-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    margin: 7px 0;
+    font-weight: 600;
+}
+
+.product-info p {
+    color: #899188;
+    font-size: 12px;
+}
+
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 17px;
+}
+
+.price {
+    font-weight: 700;
+    color: #536b52;
+    font-size: 16px;
+}
+
+.add-btn {
+    background: #536b52;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 3px;
+    font-size: 11px;
+    transition: .3s;
+}
+
+.add-btn:hover {
+    background: #344a38;
+}
+
+.no-results {
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 50px;
+    color: #879183;
+}
+
+/* PROMO BANNER */
+
+.promo {
+    margin: 10px 8% 80px;
+    min-height: 260px;
+    background: #e8dcd4;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 35px;
+    overflow: hidden;
+}
+
+.promo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #594d43;
+    margin: 10px 0;
+}
+
+.promo p {
+    color: #86776b;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.promo img {
+    width: 210px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 50%;
+    animation: float 4s infinite ease-in-out;
+}
+
+/* CART SIDEBAR */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: #0006;
+    z-index: 40;
+    display: none;
+}
+
+.cart-overlay.active {
+    display: block;
+}
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 400px;
+    max-width: 90%;
+    height: 100vh;
+    background: #fffefa;
+    z-index: 50;
+    padding: 28px;
+    transition: .4s;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-panel.active {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-header h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    font-size: 26px;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 75px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.cart-item h4 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 5px;
+}
+
+.cart-item p {
+    font-size: 13px;
+    color: #74836f;
+}
+
+.quantity {
+    display: flex;
+    gap: 12px;
+    margin-top: 9px;
+    align-items: center;
+}
+
+.quantity button {
+    border: 1px solid #ddd;
+    background: white;
+    width: 23px;
+    height: 23px;
+}
+
+.remove {
+    color: #bd7777;
+    border: none;
+    background: none;
+    font-size: 11px;
+    margin-top: 7px;
+}
+
+.cart-footer {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 17px;
+    font-weight: bold;
+}
+
+/* QUICK VIEW */
+
+.quick-modal {
+    position: fixed;
+    inset: 0;
+    background: #0008;
+    z-index: 60;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.quick-modal.active {
+    display: flex;
+}
+
+.quick-box {
+    background: #fffefa;
+    width: 650px;
+    max-width: 100%;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    position: relative;
+    animation: fadeUp .4s;
+}
+
+.quick-box img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.quick-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quick-info h2 {
+    font-family: 'Playfair Display', serif;
+    margin: 15px 0;
+}
+
+.quick-info p {
+    color: #899188;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.quick-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    border: none;
+    background: none;
+    font-size: 25px;
+}
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    background: #344a38;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 13px;
+    z-index: 100;
+    transition: .4s;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+}
+
+/* FOOTER */
+
+footer {
+    background: #344a38;
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+footer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+footer p {
+    font-size: 12px;
+    color: #d1dccd;
+    margin-top: 12px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-13px); }
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1000px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 650px) {
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+        padding: 55px 7%;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image img {
+        height: 280px;
+        max-width: 330px;
+    }
+
+    .hero-circle {
+        width: 300px;
+        height: 300px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .products-section {
+        padding: 60px 5%;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .product-image {
+        height: 190px;
+    }
+
+    .product-info {
+        padding: 12px;
+    }
+
+    .product-info h3 {
+        font-size: 15px;
+    }
+
+    .add-btn {
+        padding: 8px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .promo {
+        margin: 10px 5% 50px;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .quick-box {
+        grid-template-columns: 1fr;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .quick-box img {
+        height: 200px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+    <div class="logo">BOTANICA<span>.</span></div>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#about">Our Story</a>
+    </div>
+
+    <div class="nav-actions">
+        <button class="icon-btn" onclick="openCart()">
+            🛍️
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+        <div class="hero-label">THE ART OF EVERYDAY HYDRATION</div>
+
+        <h1>Hydrate in<br>
+        <em>Your Own Style.</em></h1>
+
+        <p>
+            Beautifully designed bottles that bring together
+            elegance, functionality and your everyday lifestyle.
+            Find the perfect bottle that feels like you.
+        </p>
+
+        <button class="primary-btn"
+        onclick="document.getElementById('shop').scrollIntoView()">
+            EXPLORE COLLECTION →
+        </button>
+    </div>
+
+    <div class="hero-image">
+        <div class="hero-circle"></div>
+        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=900"
+        alt="Aesthetic reusable water bottle">
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+    <div class="feature">
+        <strong>✿ Minimal Designs</strong>
+        <p>Simple, elegant and timeless styles</p>
+    </div>
+
+    <div class="feature">
+        <strong>♡ Everyday Comfort</strong>
+        <p>Designed for your daily routine</p>
+    </div>
+
+    <div class="feature">
+        <strong>♧ Reusable Lifestyle</strong>
+        <p>A little step towards less waste</p>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products-section" id="shop">
+
+    <div class="section-heading">
+        <small>CURATED FOR YOU</small>
+        <h2>Our Bottle Collection</h2>
+        <p>Find your favourite companion for every moment.</p>
+    </div>
+
+    <div class="filters">
+
+        <div class="categories">
+            <button class="filter-btn active"
+            onclick="filterCategory('All',this)">All</button>
+
+            <button class="filter-btn"
+            onclick="filterCategory('Pastel',this)">Pastel</button>
+
+            <button class="filter-btn"
+            onclick="filterCategory('Minimal',this)">Minimal</button>
+
+            <button class="filter-btn"
+            onclick="filterCategory('Premium',this)">Premium</button>
+
+            <button class="filter-btn"
+            onclick="filterCategory('Floral',this)">Floral</button>
+        </div>
+
+        <input class="search-box" id="search"
+        type="text" placeholder="Search bottles..."
+        oninput="renderProducts()">
+
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+
+</section>
+
+<!-- PROMO -->
+
+<section class="promo">
+    <div>
+        <small>YOUR DAILY ESSENTIAL</small>
+        <h2>Little Things.<br>Beautiful Living.</h2>
+        <p>Make hydration a beautiful part of your day.</p>
+
+        <button class="primary-btn"
+        onclick="document.getElementById('shop').scrollIntoView()">
+            SHOP NOW →
+        </button>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1532634896-26909d0d4b6d?w=500"
+    alt="Lifestyle aesthetic">
+</section>
+
+<!-- CART OVERLAY -->
+
+<div class="cart-overlay" id="cartOverlay"
+onclick="closeCart()"></div>
+
+<!-- CART -->
+
+<aside class="cart-panel" id="cartPanel">
+
+    <div class="cart-header">
+        <h2>Your Shopping Bag</h2>
+        <button class="close-btn" onclick="closeCart()">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>Total</span>
+            <span id="cartTotal">₹0</span>
+        </div>
+
+        <button class="primary-btn"
+        style="width:100%"
+        onclick="checkout()">
+            PROCEED TO CHECKOUT →
+        </button>
+    </div>
+
+</aside>
+
+<!-- QUICK VIEW -->
+
+<div class="quick-modal" id="quickModal">
+    <div class="quick-box">
+
+        <button class="quick-close"
+        onclick="closeQuick()">×</button>
+
+        <img id="quickImage" src="" alt="Product">
+
+        <div class="quick-info">
+            <small id="quickCategory"></small>
+            <h2 id="quickName"></h2>
+            <p id="quickDescription"></p>
+            <h3 id="quickPrice"></h3>
+
+            <button class="primary-btn"
+            style="margin-top:20px"
+            id="quickAdd">
+                ADD TO BAG
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- TOAST -->
+
+<div class="toast" id="toast">
+    Added to your shopping bag ♡
+</div>
+
+<!-- FOOTER -->
+
+<footer id="about">
+    <h2>BOTANICA.</h2>
+    <p>Everyday essentials, beautifully designed.</p>
+    <p>© 2026 Botanica. All rights reserved.</p>
+</footer>
+
+<script>
+
+// PRODUCT DATA
+
+const products = [
+    {
+        id: 1,
+        name: "Blush Dream Bottle",
+        category: "Pastel",
+        price: 599,
+        description: "A soft blush pink bottle for a calm and aesthetic everyday lifestyle.",
+        image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600",
+        tag: "BESTSELLER"
+    },
+    {
+        id: 2,
+        name: "Sage Serenity",
+        category: "Pastel",
+        price: 699,
+        description: "A refreshing sage-inspired design for your daily hydration.",
+        image: "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=600",
+        tag: "POPULAR"
+    },
+    {
+        id: 3,
+        name: "Pure Minimal",
+        category: "Minimal",
+        price: 449,
+        description: "Clean and timeless design for those who love simplicity.",
+        image: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600",
+        tag: "MINIMAL"
+    },
+    {
+        id: 4,
+        name: "Rose Blush Edition",
+        category: "Floral",
+        price: 749,
+        description: "An elegant floral-inspired bottle for a soft aesthetic.",
+        image: "https://images.unsplash.com/photo-1532634896-26909d0d4b6d?w=600",
+        tag: "NEW"
+    },
+    {
+        id: 5,
+        name: "Ocean Blue",
+        category: "Premium",
+        price: 899,
+        description: "A sophisticated blue bottle made for everyday adventures.",
+        image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600",
+        tag: "PREMIUM"
+    },
+    {
+        id: 6,
+        name: "Cloud White",
+        category: "Minimal",
+        price: 549,
+        description: "A beautiful neutral design that goes with every style.",
+        image: "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=600",
+        tag: "CLASSIC"
+    },
+    {
+        id: 7,
+        name: "Lavender Haze",
+        category: "Pastel",
+        price: 649,
+        description: "A dreamy lavender-inspired design for your collection.",
+        image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=600",
+        tag: "TRENDING"
+    },
+    {
+        id: 8,
+        name: "Classic Luxe",
+        category: "Premium",
+        price: 999,
+        description: "A premium everyday bottle with an elegant appearance.",
+        image: "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=600",
+        tag: "EXCLUSIVE"
+    }
+];
+
+let cart = [];
+let wishlist = [];
+let activeCategory = "All";
+
+// DISPLAY PRODUCTS
+
+function renderProducts() {
+
+    const grid = document.getElementById("productGrid");
+
+    const search = document.getElementById("search")
+        .value.toLowerCase();
+
+    const filtered = products.filter(p => {
+
+        const categoryMatch =
+            activeCategory === "All" ||
+            p.category === activeCategory;
+
+        const searchMatch =
+            p.name.toLowerCase().includes(search) ||
+            p.category.toLowerCase().includes(search);
+
+        return categoryMatch && searchMatch;
+    });
+
+    if (filtered.length === 0) {
+        grid.innerHTML =
+        `<div class="no-results">No bottles found. Try another search ♡</div>`;
+        return;
+    }
+
+    grid.innerHTML = filtered.map((p, index) => `
+        <div class="product-card"
+        style="animation-delay:${index * 0.07}s">
+
+            <div class="product-image">
+
+                <img src="${p.image}" alt="${p.name}">
+
+                <span class="tag">${p.tag}</span>
+
+                <button class="wishlist ${wishlist.includes(p.id) ? 'active' : ''}"
+                onclick="toggleWishlist(${p.id})">
+                    ${wishlist.includes(p.id) ? '♥' : '♡'}
+                </button>
+
+            </div>
+
+            <div class="product-info">
+
+                <small>${p.category.toUpperCase()}</small>
+
+                <h3>${p.name}</h3>
+
+                <p>Beautifully made for everyday use.</p>
+
+                <div class="product-bottom">
+
+                    <span class="price">₹${p.price}</span>
+
+                    <button class="add-btn"
+                    onclick="addToCart(${p.id})">
+                        + ADD
+                    </button>
+
+                </div>
+
+                <button onclick="quickView(${p.id})"
+                style="border:0;background:none;color:#899188;
+                font-size:11px;margin-top:12px;">
+                    VIEW DETAILS →
+                </button>
+
+            </div>
+        </div>
+    `).join("");
+}
+
+// CATEGORY FILTER
+
+function filterCategory(category, button) {
+
+    activeCategory = category;
+
+    document.querySelectorAll(".filter-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    renderProducts();
+}
+
+// ADD TO CART
+
+function addToCart(id) {
+
+    const existing = cart.find(item => item.id === id);
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            ...products.find(p => p.id === id),
+            quantity: 1
+        });
+    }
+
+    updateCart();
+    showToast("Added to your shopping bag ♡");
+}
+
+// UPDATE CART
+
+function updateCart() {
+
+    const container = document.getElementById("cartItems");
+
+    document.getElementById("cartCount").innerText =
+        cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    if (cart.length === 0) {
+        container.innerHTML =
+        `<p style="text-align:center;margin-top:60px;color:#899188">
+        Your bag is waiting for something beautiful ♡
+        </p>`;
+    } else {
+
+        container.innerHTML = cart.map(item => `
+            <div class="cart-item">
+
+                <img src="${item.image}" alt="${item.name}">
+
+                <div>
+                    <h4>${item.name}</h4>
+                    <p>₹${item.price}</p>
+
+                    <div class="quantity">
+                        <button onclick="changeQuantity(${item.id},-1)">-</button>
+
+                        <span>${item.quantity}</span>
+
+                        <button onclick="changeQuantity(${item.id},1)">+</button>
+                    </div>
+
+                    <button class="remove"
+                    onclick="removeItem(${item.id})">
+                        REMOVE
+                    </button>
+                </div>
+
+            </div>
+        `).join("");
+    }
+
+    const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+    );
+
+    document.getElementById("cartTotal").innerText =
+        "₹" + total;
+}
+
+// QUANTITY
+
+function changeQuantity(id, amount) {
+
+    const item = cart.find(p => p.id === id);
+
+    if (!item) return;
+
+    item.quantity += amount;
+
+    if (item.quantity <= 0) {
+        cart = cart.filter(p => p.id !== id);
+    }
+
+    updateCart();
+}
+
+// REMOVE ITEM
+
+function removeItem(id) {
+
+    cart = cart.filter(p => p.id !== id);
+
+    updateCart();
+    showToast("Item removed from bag");
+}
+
+// OPEN AND CLOSE CART
+
+function openCart() {
+
+    document.getElementById("cartPanel")
+        .classList.add("active");
+
+    document.getElementById("cartOverlay")
+        .classList.add("active");
+}
+
+function closeCart() {
+
+    document.getElementById("cartPanel")
+        .classList.remove("active");
+
+    document.getElementById("cartOverlay")
+        .classList.remove("active");
+}
+
+// WISHLIST
+
+function toggleWishlist(id) {
+
+    if (wishlist.includes(id)) {
+        wishlist = wishlist.filter(x => x !== id);
+        showToast("Removed from favourites");
+    } else {
+        wishlist.push(id);
+        showToast("Added to favourites ♥");
+    }
+
+    renderProducts();
+}
+
+// QUICK VIEW
+
+function quickView(id) {
+
+    const p = products.find(x => x.id === id);
+
+    document.getElementById("quickImage").src = p.image;
+    document.getElementById("quickName").innerText = p.name;
+    document.getElementById("quickCategory").innerText = p.category;
+    document.getElementById("quickDescription").innerText = p.description;
+    document.getElementById("quickPrice").innerText = "₹" + p.price;
+
+    document.getElementById("quickAdd").onclick = () => {
+        addToCart(id);
+        closeQuick();
+    };
+
+    document.getElementById("quickModal")
+        .classList.add("active");
+}
+
+function closeQuick() {
+    document.getElementById("quickModal")
+        .classList.remove("active");
+}
+
+// CHECKOUT DEMO
+
+function checkout() {
+
+    if (cart.length === 0) {
+        showToast("Your shopping bag is empty!");
+        return;
+    }
+
+    const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+    );
+
+    alert(
+        "Thank you for shopping with BOTANICA! ♡\n\n" +
+        "Items: " + cart.reduce((s, i) => s + i.quantity, 0) +
+        "\nTotal: ₹" + total +
+        "\n\nThis is a demo checkout. No payment has been processed."
+    );
+
+    cart = [];
+    updateCart();
+    closeCart();
+}
+
+// TOAST MESSAGE
+
+let toastTimer;
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.innerText = message;
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2200);
+}
+
+// INITIALIZATION
+
+renderProducts();
+updateCart();
+
+</script>
+
+</body>
+</html>
